@@ -10,4 +10,12 @@ describe Ehealth::Medicine do
       Ehealth::Medicine.new(-1, 'Wolfarine')
     }.to raise_error(InvalidMedicineIdError)
   end
+
+  describe '#to_s' do
+    it 'should format output correctly' do
+      out = "0: Wolfarine"
+      med = Ehealth::Medicine.new(0, 'Wolfarine')
+      expect(med.to_s).to eq(out)
+    end
+  end
 end
