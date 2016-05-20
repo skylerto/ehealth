@@ -19,7 +19,13 @@ describe Ehealth::Medicine do
     end
   end
 
-  describe '#interactions' do
+  describe '#interacts_with?' do
+    it 'should say yes' do
+      
+    end
+  end
+
+  describe '#add_interaction' do
     it 'should start with no interactions' do
       med = Ehealth::Medicine.new(0, 'advil')
       expect(med.interactions).to eq([])
@@ -30,8 +36,8 @@ describe Ehealth::Medicine do
 
       m2 = Ehealth::Medicine.new(1, 'alcohol')
 
-      m1.interacts_with(m2)
-      m2.interacts_with(m1)
+      m1.add_interaction(m2)
+      m2.add_interaction(m1)
 
       expect(m1.interactions).to eq([m2])
       expect(m2.interactions).to eq([m1])
@@ -43,11 +49,11 @@ describe Ehealth::Medicine do
 
       m2 = Ehealth::Medicine.new(1, 'alcohol')
 
-      m1.interacts_with(m2)
-      m2.interacts_with(m1)
+      m1.add_interaction(m2)
+      m2.add_interaction(m1)
 
       expect {
-        m1.interacts_with(m2)
+        m1.add_interaction(m2)
       }.to raise_error(InteractionExistsError)
     end
 

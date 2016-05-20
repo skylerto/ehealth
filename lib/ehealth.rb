@@ -9,4 +9,6 @@ require 'ehealth/physicians'
 require 'ehealth/medicine'
 require 'ehealth/medications'
 
+require 'ehealth/interactions'
+
 require 'ehealth/cli/cli'

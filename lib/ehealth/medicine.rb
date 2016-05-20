@@ -16,7 +16,7 @@ module Ehealth
       "#{@id}: #{@name}"
     end
 
-    def interacts_with(medicine)
+    def add_interaction(medicine)
       if @interactions.include?(medicine)
         raise InteractionExistsError.new 'interaction already exists'
       end
