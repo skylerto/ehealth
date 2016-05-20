@@ -3,6 +3,18 @@
 require "bundler/setup"
 require "ehealth"
 
+opt = ARGV[0]
+
+if opt == '-i'
+  ARGV.clear
+  Ehealth::Cli.new
+elsif opt == '-b'
+  file = ARGV[1]
+  puts 'Please pass a file' unless file
+else
+  puts 'Okay?'
+end
+
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
@@ -12,4 +24,3 @@ require "ehealth"
 
 #require "irb"
 #IRB.start
-Ehealth::Cli.new
