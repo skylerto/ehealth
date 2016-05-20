@@ -47,4 +47,24 @@ describe Ehealth::Medications do
       expect(meds.to_s).to eq(out)
     end
   end
+
+  describe '#medicine' do
+    it 'it should grab a medicine by id' do
+      med = Ehealth::Medicine.new(0, 'Advil')
+      meds = Ehealth::Medications.new
+      meds.add(med)
+
+      m = meds.medicine(0)
+      expect(m).to eq(med)
+    end
+
+    it 'should grab a medicine by name' do
+      med = Ehealth::Medicine.new(0, 'Advil')
+      meds = Ehealth::Medications.new
+      meds.add(med)
+
+      m = meds.medicine('Advil')
+      expect(m).to eq(med)
+    end
+  end
 end

@@ -25,6 +25,18 @@ module Ehealth
       out << " ]"
     end
 
+    def medicine(medicine)
+      if medicine.is_a? Numeric
+        @medications.select{|med|
+          med.id = medicine
+        }.first
+      else
+        @medications.select{|med|
+          med.name = medicine
+        }.first
+      end
+    end
+
     private
 
     def has_id?(id)

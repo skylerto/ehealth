@@ -43,7 +43,8 @@ module Ehealth
     # Add a new interaction between +m1+ and +m2+
     def add_interaction(m1, m2)
       begin
-        fail 'A test exception.'
+        m1 = @medications.medicine(m1)
+        m2 = @medications.medicine(m2)
         @interactions.add_interaction(m1, m2)
       rescue Exception => e
         puts e.message
