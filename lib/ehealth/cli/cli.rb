@@ -5,7 +5,7 @@ module Ehealth
     def initialize
       @physicians = Ehealth::Physicians.new
       @patients = Ehealth::Patients.new
-      @medications = Ehealth::Medication.new
+      @medications = Ehealth::Medications.new
       @interations = []
       start
     end

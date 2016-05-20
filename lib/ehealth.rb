@@ -7,5 +7,6 @@ require 'ehealth/physician'
 require 'ehealth/physicians'
 
 require 'ehealth/medicine'
+require 'ehealth/medications'
 
 require 'ehealth/cli/cli'

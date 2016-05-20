@@ -14,7 +14,6 @@ describe Ehealth::Physicians do
     end
 
     it 'should not add an id that already exists' do
-      
       phy1 = Ehealth::Physician.new(0, 'house', 'specialist')
       phys = Ehealth::Physicians.new
       phys.add(phy1)
