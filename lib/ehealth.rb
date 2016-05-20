@@ -1,16 +1,13 @@
 require "ehealth/version"
 
-require 'ehealth/patient'
-require 'ehealth/patients'
+require 'ehealth/models/patient'
+require 'ehealth/models/physician'
+require 'ehealth/models/medicine'
+require 'ehealth/models/prescription'
 
-require 'ehealth/physician'
-require 'ehealth/physicians'
-
-require 'ehealth/medicine'
-require 'ehealth/medications'
-
-require 'ehealth/interactions'
-
-require 'ehealth/prescription'
+require 'ehealth/collections/patients'
+require 'ehealth/collections/physicians'
+require 'ehealth/collections/medications'
+require 'ehealth/collections/interactions'
 
 require 'ehealth/cli/cli'
