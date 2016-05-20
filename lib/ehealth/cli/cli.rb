@@ -5,10 +5,11 @@ module Ehealth
     def initialize
       @physicians = Ehealth::Physicians.new
       @patients = Ehealth::Patients.new
-      @medications = []
+      @medications = Ehealth::Medication.new
       @interations = []
       start
     end
+
     ##
     # Add a new physician with the given +id+, +name+, and +type+.
     def add_physician(id, name, type)
@@ -30,7 +31,12 @@ module Ehealth
     ##
     # Add a new +medicine+
     def add_medication(id, medicine)
-      "Adding #{medicine}"
+      begin
+        med = Ehealth::Medicine.new(id, medicine)
+        @medications.add(med)
+      rescue Exception => e
+        puts e.message
+      end
     end
 
     ##
@@ -95,6 +101,7 @@ module Ehealth
     def out
       puts "Physicians: #{@physicians}"
       puts "Patients: #{@patients}"
+      puts "Medication: #{@medications}"
     end
   end
 end
