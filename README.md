@@ -1,5 +1,8 @@
 # eHealth
 
+[![Build
+Status](https://travis-ci.org/skylerto/ehealth.svg?branch=master)](https://travis-ci.org/skylerto/ehealth)
+
 eHealth is a system which manages patient prescriptions.
 
 ## Usage
