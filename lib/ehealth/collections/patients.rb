@@ -28,6 +28,12 @@ module Ehealth
       out << " ]"
     end
 
+    def patient(patient)
+      @patients.select{ |pat|
+        pat.id == patient
+      }.first
+    end
+
     private
 
     def has_id?(id)

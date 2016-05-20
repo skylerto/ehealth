@@ -39,4 +39,14 @@ describe Ehealth::Patients do
       expect(patients.to_s).to eq(out)
     end
   end
+
+  describe '#patient' do
+    it 'should get a patient by id' do
+      patients = Ehealth::Patients.new
+      patient = Ehealth::Patient.new(0, 'Meri')
+      patients.add(patient)
+      
+      expect(patients.patient(0)).to eq(patient)
+    end
+  end
 end
