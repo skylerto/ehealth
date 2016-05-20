@@ -24,7 +24,6 @@ module Ehealth
       @patients.each_with_index { |pat, i|
         out << pat.to_s
         out << ", " unless i == @patients.size - 1
-
       }
       out << " ]"
     end
