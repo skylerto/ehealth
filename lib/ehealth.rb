@@ -1,3 +1,3 @@
 require "ehealth/version"
 require 'ehealth/patient'
-#require 'ehealth/cli/cli'
+require 'ehealth/cli/cli'

@@ -74,5 +74,3 @@ module Ehealth
     end
   end
 end
-
-Ehealth::Cli.start
