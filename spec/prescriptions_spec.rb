@@ -6,7 +6,7 @@ describe Ehealth::Prescription do
     pres = Ehealth::Prescription.new(pat, med, doc)
 
     expect(pres.patient).to eq(pat)
-    expect(pres.medicine).to eq(med)
-    expect(pres.doc).to eq(doc)
+    expect(pres.medication).to eq(med)
+    expect(pres.physician).to eq(doc)
   end
 end
