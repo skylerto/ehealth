@@ -1,0 +1,44 @@
+system eHealth
+  -- manage prescriptions for physicians and patients
+
+  -- ids for physicians, patients, medications and prescriptions
+  -- each with its own sort
+  -- 1..
+type ID_MD = INT -- physicians
+type ID_PT = INT -- patients
+type ID_RX = INT -- prescriptions
+type ID_MN = INT -- medications
+
+type NAME = STRING
+  -- names of physicians, patients and medications
+
+  -- prescription
+type KIND = {pill, liquid}
+  -- for a pill, it is a positive real in mg
+  -- for a liquid it is a positive real in cc
+type MEDICATION = TUPLE [name: NAME; kind: KIND; low: VALUE; hi: VALUE]
+
+type PHYSICIAN_TYPE = {generalist, specialist}
+
+-- User Actions
+add_physician      (id: ID_MD; name: NAME; kind: PHYSICIAN_TYPE)
+add_patient        (id: ID_PT; name: NAME)
+add_medication     (id: ID_MN; medicine: MEDICATION)
+add_interaction    (id1:ID_MN;id2:ID_MN)
+
+new_prescription   (id: ID_RX; doctor: ID_MD; patient: ID_PT)
+add_medicine       (id: ID_RX; medicine:ID_MN; dose: VALUE)
+remove_medicine    (id: ID_RX; medicine:ID_MN)
+
+-- On Demand Queries: _q
+prescriptions_q(medication_id: ID_MN)
+  -- shows list of patient-ids -> patients 
+  -- with this medication in a prescription
+
+dpr_q
+  -- dangerous prescription report
+  -- e.g. There are dangerous prescriptions:
+  --(Dora,3)->{ [Sulfamethizole,pl,2]->[Wafarin,pl,1] }
+
+
+
