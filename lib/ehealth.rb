@@ -11,4 +11,6 @@ require 'ehealth/medications'
 
 require 'ehealth/interactions'
 
+require 'ehealth/prescription'
+
 require 'ehealth/cli/cli'
