@@ -10,4 +10,11 @@ describe Ehealth::Patient do
       Ehealth::Patient.new(-1, "Patrisha")
     }.to raise_error(InvalidPatientIdError)
   end
+  describe '#to_s' do
+    it 'should format patient correctly' do
+      pat = Ehealth::Patient.new(0, "Patrisha")
+      out = "0: Patrisha"
+      expect(pat.to_s).to eq(out)
+    end
+  end
 end

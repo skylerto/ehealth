@@ -13,6 +13,10 @@ module Ehealth
       @name = name
     end
 
+    def to_s
+      "#{@id}: #{@name}"
+    end
+
   end
 end
 

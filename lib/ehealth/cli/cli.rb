@@ -4,7 +4,7 @@ module Ehealth
 
     def initialize
       @physicians = []
-      @patients = []
+      @patients = Ehealth::Patients.new
       @medications = []
       @interations = []
       start
@@ -19,7 +19,7 @@ module Ehealth
     # Add a new patient with the given +id+, and +name+.
     def add_patient(id, name)
       patient = Ehealth::Patient.new(id, name)
-      @patients << patient
+      @patients.add(patient)
       "Patients: #{@patients}"
     end
 
