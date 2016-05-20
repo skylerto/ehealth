@@ -6,7 +6,7 @@ module Ehealth
       @physicians = Ehealth::Physicians.new
       @patients = Ehealth::Patients.new
       @medications = Ehealth::Medications.new
-      @interations = []
+      @interations = Ehealth::Interactions.new
       start
     end
 
@@ -42,7 +42,12 @@ module Ehealth
     ##
     # Add a new interaction between +m1+ and +m2+
     def add_interaction(m1, m2)
-      "New Interaction between #{m1} and #{m2}"
+      begin
+        fail 'A test exception.'
+        @interactions.add_interaction(m1, m2)
+      rescue Exception => e
+        puts e.message
+      end
     end
 
     ##
@@ -102,6 +107,7 @@ module Ehealth
       puts "Physicians: #{@physicians}"
       puts "Patients: #{@patients}"
       puts "Medication: #{@medications}"
+      puts "Interactions: #{@interactions}"
     end
   end
 end
