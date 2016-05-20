@@ -18,7 +18,6 @@ module Ehealth
       rescue Exception => e
         puts e.message
       end
-      "Physicians: #{@physicians}"
     end
 
     ##
@@ -26,7 +25,6 @@ module Ehealth
     def add_patient(id, name)
       patient = Ehealth::Patient.new(id, name)
       @patients.add(patient)
-      "Patients: #{@patients}"
     end
 
     ##
@@ -76,13 +74,27 @@ module Ehealth
     private
 
     def handle_input(input)
-      result = eval(input)
-      puts(" => #{result}")
+      begin
+        eval(input)
+      rescue Exception
+        puts 'user input error'
+      else
+        # other exception
+      ensure
+        # always executed
+      end
+
     end
 
     def repl(prompt)
         print prompt
         handle_input(gets.chomp!)
+        out
+    end
+
+    def out
+      puts "Physicians: #{@physicians}"
+      puts "Patients: #{@patients}"
     end
   end
 end
