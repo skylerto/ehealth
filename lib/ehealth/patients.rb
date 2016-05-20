@@ -13,7 +13,7 @@ module Ehealth
     # in use.
     def add(patient)
       if has_id?(patient.id)
-        raise PatientIdExistsError.new 'Patient already exists with the given id'
+        raise PatientIdExistsError.new 'patient id already in use'
       else
         @patients << patient
       end

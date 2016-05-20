@@ -3,7 +3,7 @@ module Ehealth
     attr_accessor :physicians, :patients, :medications, :interations
 
     def initialize
-      @physicians = []
+      @physicians = Ehealth::Physicians.new
       @patients = Ehealth::Patients.new
       @medications = []
       @interations = []
@@ -12,7 +12,16 @@ module Ehealth
     ##
     # Add a new physician with the given +id+, +name+, and +type+.
     def add_physician(id, name, type)
-      "Adding new #{type}: #{name}"
+      begin
+        phys = Ehealth::Physician.new(id, name, type)
+        @physicians.add(phys)
+      rescue Exception => e
+        puts e.message
+      else
+        # other exception
+      ensure
+        "Physicians: #{@physicians}"
+      end
     end
 
     ##
