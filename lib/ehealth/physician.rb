@@ -15,7 +15,7 @@ module Ehealth
     end
 
     def to_s
-      "#{@id}: #{@name}, #{@type}"
+      "#{@id}: #{@name} - #{@type}"
     end
 
     private

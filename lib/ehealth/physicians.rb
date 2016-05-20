@@ -14,6 +14,15 @@ module Ehealth
       @physicians << physician
     end
 
+    def to_s
+      out = "[ "
+      @physicians.each_with_index { |phy, i|
+        out << phy.to_s
+        out << ", " unless i == @physicians.size - 1
+      }
+      out << " ]"
+    end
+
     private
 
     def has_id?(id)

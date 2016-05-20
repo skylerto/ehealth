@@ -21,7 +21,7 @@ describe Ehealth::Physician do
   describe '#to_s' do
     it 'should format output correctly' do
       physician = Ehealth::Physician.new(0, 'House', 'specialist')
-      out = "0: House, specialist"
+      out = "0: House - specialist"
       expect(physician.to_s).to eq(out)
     end
   end

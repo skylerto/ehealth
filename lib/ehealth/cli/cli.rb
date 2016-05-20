@@ -17,11 +17,8 @@ module Ehealth
         @physicians.add(phys)
       rescue Exception => e
         puts e.message
-      else
-        # other exception
-      ensure
-        "Physicians: #{@physicians}"
       end
+      "Physicians: #{@physicians}"
     end
 
     ##

@@ -27,4 +27,17 @@ describe Ehealth::Physicians do
       expect(phys.physicians.first).to eq(phy1)
     end
   end
+
+  describe '#to_s' do
+    it 'should format properly' do
+      phys = Ehealth::Physicians.new
+      phy = Ehealth::Physician.new(0, 'House', 'generalist')
+      phys.add(phy)
+      phy = Ehealth::Physician.new(1, 'Cameron', 'specialist')
+      phys.add(phy)
+
+      out = "[ 0: House - generalist, 1: Cameron - specialist ]"
+      expect(phys.to_s).to eq(out)
+    end
+  end
 end
