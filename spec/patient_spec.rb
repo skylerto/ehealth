@@ -1,4 +1,4 @@
-describe Patient do
+describe Ehealth::Patient do
   it 'should create a new patient with the given name and id' do
     pat = Ehealth::Patient.new(0, "Patrisha")
     expect(pat.name).to eq("Patrisha")
