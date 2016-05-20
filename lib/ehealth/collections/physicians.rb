@@ -23,6 +23,18 @@ module Ehealth
       out << " ]"
     end
 
+    def physician(physician)
+      if physician.is_a? Numeric
+        @physicians.select { |phys| 
+          phys.id = physician
+        }.first
+      else
+        @physicians.select { |phys| 
+          phys.name = physician
+        }.first
+      end
+    end
+
     private
 
     def has_id?(id)

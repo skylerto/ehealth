@@ -39,4 +39,22 @@ describe Ehealth::Physicians do
       expect(phys.to_s).to eq(out)
     end
   end
+
+  describe '#physician' do
+    it 'should get a physician by name' do
+      phys = Ehealth::Physicians.new
+      phy = Ehealth::Physician.new(0, 'House', 'generalist')
+      phys.add(phy)
+
+      expect(phys.physician(0)).to eq(phy)
+    end
+
+    it 'should get a physician by id' do
+      phys = Ehealth::Physicians.new
+      phy = Ehealth::Physician.new(0, 'House', 'generalist')
+      phys.add(phy)
+
+      expect(phys.physician('House')).to eq(phy)
+    end
+  end
 end
